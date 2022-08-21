@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  freemarker:
+    template-loader-path: "classpath:/templates"
+    suffix: .ftl
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/${DATABASE_NAME:}"
+    username: ${DATABASE_ROOT_USER:}
+    password: ${DATABASE_ROOT_PASSWORD:}
