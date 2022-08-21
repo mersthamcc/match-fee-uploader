@@ -5,21 +5,23 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Product</th>
+              <th scope="col">Type</th>
+              <th scope="col">Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
+            <#list items as item>
+              <tr>
+                <td>${item.orderNumber}-${item.lineNumber}</td>
+                <td>${(item.created).format("dd/MM/yyyy HH:mm")}</td>
+                <td>${item.product}</td>
+                <td>${item.type}</td>
+                <td>${item.price?string.currency}</td>
+              </tr>
+            </#list>
           </tbody>
         </table>
       </div>

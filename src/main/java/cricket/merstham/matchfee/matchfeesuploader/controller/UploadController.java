@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 public class UploadController {
@@ -22,8 +24,10 @@ public class UploadController {
     }
 
     @GetMapping(value = "/", name = "home")
-    public String home() {
-        return "home/index";
+    public ModelAndView home() {
+        return new ModelAndView("home/index", Map.of(
+                "items", paymentRepository.findAll()
+        ));
     }
 
     @GetMapping(value = "/upload", name = "upload")

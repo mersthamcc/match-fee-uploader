@@ -25,6 +25,8 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.springframework.session:spring-session-core'
     implementation 'com.opencsv:opencsv:5.6'
+    implementation "no.api.freemarker:freemarker-java8:2.1.0"
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
