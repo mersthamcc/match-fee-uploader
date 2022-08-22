@@ -9,7 +9,7 @@
     <main>
         <h1 class="visually-hidden">Match Fee Loader</h1>
         <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use></svg>
@@ -36,6 +36,9 @@
                         </a>
                     </li>
                 </ul>
+                <div class="col-md-3 text-end">
+                    ${Session.SPRING_SECURITY_CONTEXT.authentication.name}
+                </div>
             </header>
         </div>
         <div class="b-example-divider"></div>

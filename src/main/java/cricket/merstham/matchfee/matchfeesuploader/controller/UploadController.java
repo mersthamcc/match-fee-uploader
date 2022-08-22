@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Map;
 
 @Controller
@@ -25,8 +26,14 @@ public class UploadController {
 
     @GetMapping(value = "/", name = "home")
     public ModelAndView home() {
+        var items = paymentRepository.findAll();
         return new ModelAndView("home/index", Map.of(
-                "items", paymentRepository.findAll()
+                "items", paymentRepository.findAll(),
+                "total", items
+                        .stream()
+                        .map(payment -> payment.getPrice())
+                        .reduce(BigDecimal::add)
+                        .get()
         ));
     }
 
